@@ -8,8 +8,11 @@ class App extends \DI\Bridge\Slim\App
 {
     protected function configureContainer(ContainerBuilder $builder)
     {
-        // Include Slim settings
-        $builder->addDefinitions(__DIR__ . '/../src/settings.php');
+        // Slim settings
+        $builder->addDefinitions([
+            'settings.displayErrorDetails' => true,
+            'settings.addContentLengthHeader' => false
+        ]);
 
         // Include Containers
         $builder->addDefinitions(__DIR__ . '/../src/container.php');
