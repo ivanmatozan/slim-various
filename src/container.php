@@ -13,6 +13,7 @@ return [
         return new Slim\Flash\Messages();
     },
 
+    // Custom 404 page
     'notFoundHandler' => function (ContainerInterface $container) {
         return function ($request, $response) use ($container) {
             $container->get(\Slim\Views\Twig::class)->render($response, 'errors/404.twig');

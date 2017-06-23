@@ -9,14 +9,14 @@ use Slim\Views\Twig as View;
 
 class UserController
 {
-    public function show(Request $request, Response $response, View $view, \PDO $db)
+    public function show(Response $response, View $view, \PDO $db)
     {
         $users = $db->query('SELECT * FROM user')->fetchAll(\PDO::FETCH_OBJ);
 
         return $view->render($response, 'user/show.twig', compact('users'));
     }
 
-    public function profile(int $id, Request $request, Response $response, View $view, \PDO $db, Router $router)
+    public function profile(int $id, Response $response, View $view, \PDO $db, Router $router)
     {
         $sql = 'SELECT * FROM user WHERE id = :id';
         $stmt = $db->prepare($sql);
