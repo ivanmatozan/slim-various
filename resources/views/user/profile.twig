@@ -1,0 +1,8 @@
+{% extends 'base.twig' %}
+
+{% block title %}{{ user.name }}{% endblock %}
+
+{% block content %}
+    <h4>{{ user.name }}</h4>
+    <a href="{{ path_for('user.show') }}">Back</a>
+{% endblock %}

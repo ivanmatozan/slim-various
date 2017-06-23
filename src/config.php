@@ -11,7 +11,7 @@ return [
     'db' => [
         'mysql' => [
             'host' => 'localhost',
-            'dbname' => 'slim',
+            'dbname' => 'slim_various',
             'username' => 'root',
             'password' => ''
         ]

@@ -1,0 +1,13 @@
+{% extends 'base.twig' %}
+
+{% block title %}Users{% endblock %}
+
+{% block content %}
+    <h4>Users</h4>
+
+    <ul>
+        {% for user in users %}
+            <li><a href="{{ path_for('user.profile', {id: user.id}) }}">{{ user.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
