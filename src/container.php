@@ -8,6 +8,11 @@ return [
         return $container->get('router');
     },
 
+    // Flash messages
+    \Slim\Flash\Messages::class => function (ContainerInterface $container) {
+        return new Slim\Flash\Messages();
+    },
+
     // Twig
     \Slim\Views\Twig::class => function (ContainerInterface $container) {
         $twig = new \Slim\Views\Twig(__DIR__ . '/../resources/views');
@@ -16,6 +21,9 @@ return [
             $container->get('router'),
             $container->get('request')->getUri()
         ));
+
+        // Add flash messages as Twig global variable
+        $twig->getEnvironment()->addGlobal('flash', $container->get(\Slim\Flash\Messages::class));
 
         return $twig;
     },

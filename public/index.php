@@ -1,5 +1,8 @@
 <?php
 
+// Start session
+session_start();
+
 // Composer autoloader
 require __DIR__ . '/../vendor/autoload.php';
 

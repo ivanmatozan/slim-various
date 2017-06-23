@@ -1,6 +1,10 @@
 <?php
 
-$app->get('/', ['\App\Controllers\HomeController', 'index'])->setName('home');
+$app->group('/', function () {
+    $this->get('', ['\App\Controllers\HomeController', 'index'])->setName('home');
+    $this->get('flash', ['\App\Controllers\HomeController', 'flash'])->setName('home.flash');
+    $this->get('pivot', ['\App\Controllers\HomeController', 'pivot'])->setName('home.pivot');
+});
 
 $app->group('/users', function () {
     $this->get('', ['\App\Controllers\UserController', 'show'])->setName('user.show');

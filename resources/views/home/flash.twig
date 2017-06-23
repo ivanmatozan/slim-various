@@ -1,12 +1,12 @@
 {% extends 'base.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Flash message{% endblock %}
 
 {% block content %}
     <div class="row">
         <div class="col-xs-12">
-            <h3>Home page</h3>
-            <a href="{{ path_for('home.pivot') }}">Flash message</a>
+            <h3>Flash message</h3>
+            <a href="{{ path_for('home') }}">Home</a>
         </div>
     </div>
 {% endblock %}
