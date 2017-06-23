@@ -18,5 +18,12 @@ return [
         ));
 
         return $twig;
+    },
+
+    // Config
+    \Noodlehaus\Config::class => function (ContainerInterface $container) {
+        return new \Noodlehaus\Config([
+            __DIR__ . '/../src/config.php'
+        ]);
     }
 ];
