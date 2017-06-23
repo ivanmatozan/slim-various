@@ -4,11 +4,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 // Instantiate app
-$settings = require __DIR__ . '/../src/settings.php';
-$app = new Slim\App($settings);
-
-// Setup dependencies
-require __DIR__ . '/../src/dependencies.php';
+$app = new \App\App();
 
 // Register routes
 require __DIR__ . '/../src/routes.php';
