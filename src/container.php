@@ -13,6 +13,14 @@ return [
         return new Slim\Flash\Messages();
     },
 
+    'notFoundHandler' => function (ContainerInterface $container) {
+        return function ($request, $response) use ($container) {
+            $container->get(\Slim\Views\Twig::class)->render($response, 'errors/404.twig');
+
+            return $response->withStatus(404);
+        };
+    },
+
     // Twig
     \Slim\Views\Twig::class => function (ContainerInterface $container) {
         $twig = new \Slim\Views\Twig(__DIR__ . '/../resources/views');

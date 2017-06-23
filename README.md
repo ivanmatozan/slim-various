@@ -11,3 +11,5 @@
 [PDO with Slim 3](https://www.codecourse.com/lessons/pdo-with-slim-3)
 
 [Flashing messages with Slim 3](https://www.codecourse.com/lessons/slim-3-flash-messages)
+
+[Custom 404 views with Slim 3](https://www.codecourse.com/lessons/slim-3-custom-404-views)
