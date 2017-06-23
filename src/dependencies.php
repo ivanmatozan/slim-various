@@ -1,14 +1,15 @@
 <?php
 
-// Composer autoloader
-require __DIR__ . '/../vendor/autoload.php';
-
-$app = new Slim\App();
+use Psr\Container\ContainerInterface;
 
 $container = $app->getContainer();
 
-$container['view'] = function (\Psr\Container\ContainerInterface $c) {
-    $twig = new Slim\Views\Twig(__DIR__ . '/../resources/views');
+// View renderer
+$container['view'] = function (ContainerInterface $c) {
+    $settings = $c->get('settings')['renderer'];
+
+    $twig = new Slim\Views\Twig($settings['template_path']);
+
     $twig->addExtension(new \Slim\Views\TwigExtension(
         $c['router'],
         $c['request']->getUri()
@@ -16,6 +17,3 @@ $container['view'] = function (\Psr\Container\ContainerInterface $c) {
 
     return $twig;
 };
-
-// Routes file
-require 'routes.php';
