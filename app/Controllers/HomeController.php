@@ -10,6 +10,6 @@ class HomeController
 {
     public function index(Request $request, Response $response, View $view)
     {
-        $view->render($response, 'home.twig');
+        $view->render($response, 'home/index.twig');
     }
 }
