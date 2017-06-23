@@ -13,3 +13,5 @@
 [Flashing messages with Slim 3](https://www.codecourse.com/lessons/slim-3-flash-messages)
 
 [Custom 404 views with Slim 3](https://www.codecourse.com/lessons/slim-3-custom-404-views)
+
+[Eloquent and Slim](https://www.codecourse.com/lessons/laravel-eloquent-with-slim-3)

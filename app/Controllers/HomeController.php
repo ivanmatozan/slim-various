@@ -7,10 +7,11 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Flash\Messages;
 use Slim\Views\Twig as View;
 use Slim\Interfaces\RouterInterface as Router;
+use \Illuminate\Database\Capsule\Manager as Eloquent;
 
 class HomeController
 {
-    public function index(Response $response, View $view)
+    public function index(Response $response, View $view, Eloquent $db)
     {
         return $view->render($response, 'home/index.twig');
     }

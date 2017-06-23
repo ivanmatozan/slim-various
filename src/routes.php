@@ -8,5 +8,6 @@ $app->group('/', function () {
 
 $app->group('/users', function () {
     $this->get('', ['\App\Controllers\UserController', 'show'])->setName('user.show');
+    $this->get('/test', ['\App\Controllers\UserController', 'test'])->setName('user.test');
     $this->get('/{id}', ['\App\Controllers\UserController', 'profile'])->setName('user.profile');
 });

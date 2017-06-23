@@ -10,10 +10,14 @@ return [
     // Database
     'db' => [
         'mysql' => [
+            'driver' => 'mysql',
             'host' => 'localhost',
-            'dbname' => 'slim_various',
+            'database' => 'slim_various',
             'username' => 'root',
-            'password' => ''
+            'password' => '',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => ''
         ]
     ]
 ];

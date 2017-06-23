@@ -48,11 +48,24 @@ return [
     \PDO::class => function (ContainerInterface $container) {
         $config = $container->get(\Noodlehaus\Config::class);
 
+        $driver = $config->get('db.mysql.driver');
         $host = $config->get('db.mysql.host');
-        $dbname = $config->get('db.mysql.dbname');
+        $database = $config->get('db.mysql.database');
         $username = $config->get('db.mysql.username');
         $password = $config->get('db.mysql.password');
 
-        return new \PDO("mysql:host={$host};dbname={$dbname}", $username, $password);
+        return new \PDO("{$driver}:host={$host};dbname={$database}", $username, $password);
+    },
+
+    // Eloquent
+    \Illuminate\Database\Capsule\Manager::class => function (ContainerInterface $container) {
+        $config = $container->get(\Noodlehaus\Config::class);
+
+        $capsule = new \Illuminate\Database\Capsule\Manager();
+        $capsule->addConnection($config->get('db.mysql'));
+        $capsule->setAsGlobal();
+        $capsule->bootEloquent();
+
+        return $capsule;
     }
 ];
