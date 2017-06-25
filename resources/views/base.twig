@@ -9,6 +9,11 @@
 </head>
 <body>
 
+<nav role="navigation">
+    <a href="{{ path_for('home') }}">Home</a>
+    <a href="{{ path_for('user.index') }}">Users</a>
+</nav>
+
 <div class="container">
 
     {% if flash.getMessage('global').0 %}

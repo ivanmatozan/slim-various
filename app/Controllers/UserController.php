@@ -7,11 +7,17 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Interfaces\RouterInterface as Router;
 use Slim\Views\Twig as View;
-use Illuminate\Database\Capsule\Manager as Eloquent;
-use \App\Models\User;
+use App\Models\User;
 
 class UserController
 {
+    public function index(Request $request, Response $response, View $view, User $user)
+    {
+        $users = $user->get();
+
+        return $view->render($response, 'user/index.twig', compact('users'));
+    }
+
     public function show(Response $response, View $view, \PDO $db)
     {
         $users = $db->query('SELECT * FROM user')->fetchAll(\PDO::FETCH_OBJ);
@@ -37,7 +43,7 @@ class UserController
     }
 
 
-    public function test(Response $response, View $view, Eloquent $db, User $user, Topic $topic)
+    public function test(Response $response, View $view, User $user, Topic $topic)
     {
 //        $users = $user->get();
 //        $users = User::get();
